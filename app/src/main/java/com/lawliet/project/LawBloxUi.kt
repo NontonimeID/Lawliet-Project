@@ -240,7 +240,7 @@ fun LbHome(vm: AppVM, onOpen: (Experience) -> Unit, onFriends: () -> Unit) {
         }
         item {
             OutlinedButton(
-                { vm.setLawblox(false) }, Modifier.fillMaxWidth().padding(16.dp).height(48.dp), shape = RoundedCornerShape(12.dp),
+                { vm.updateLawblox(false) }, Modifier.fillMaxWidth().padding(16.dp).height(48.dp), shape = RoundedCornerShape(12.dp),
             ) { Text("Kembali ke tampilan original", color = Ink) }
         }
     }
@@ -510,7 +510,7 @@ fun LawBloxShell(vm: AppVM) {
                     Triple("Change Password", Lucide.KeyRound) { dialog = "pw" },
                     Triple("Ganti Username", Lucide.Pencil) { dialog = "name" },
                     Triple("Info Aplikasi", Lucide.Info) { dialog = "info" },
-                    Triple("Tampilan Original", Lucide.House) { vm.setLawblox(false) },
+                    Triple("Tampilan Original", Lucide.House) { vm.updateLawblox(false) },
                 )
                 entries.forEach { (label, icon, action) ->
                     NavigationDrawerItem(

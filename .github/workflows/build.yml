@@ -2,16 +2,17 @@
 name: Lawliet Android Build
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   build:
+    name: Build Lawliet APK
     runs-on: ubuntu-latest
 
     steps:
@@ -24,14 +25,13 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup Gradle
+      - name: Setup Gradle 8.9
         uses: gradle/actions/setup-gradle@v4
-
-      - name: Grant Permission
-        run: chmod +x gradlew
+        with:
+          gradle-version: '8.9'
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

@@ -30,7 +30,7 @@ class AppVM(app: Application) : AndroidViewModel(app) {
     var lawblox by mutableStateOf(prefs.getBoolean("lawblox", false))
         private set
     private fun syncTheme() { LbTheme.on = lawblox && user != null }
-    fun setLawblox(on: Boolean) {
+    fun updateLawblox(on: Boolean) {
         lawblox = on; prefs.edit().putBoolean("lawblox", on).apply(); syncTheme()
         log(if (on) "Beralih ke tampilan LawBlox" else "Kembali ke tampilan original")
     }

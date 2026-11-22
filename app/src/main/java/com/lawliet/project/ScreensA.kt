@@ -102,7 +102,7 @@ fun HomeScreen(vm: AppVM, go: (String) -> Unit) {
     LazyColumn(contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
         item { RawVideo("banner", Modifier.fillMaxWidth().aspectRatio(4f / 3f).clip(RoundedCornerShape(20.dp))) }
         item {
-            AppCard(Modifier.fillMaxWidth(), onClick = { vm.setLawblox(true) }) {
+            AppCard(Modifier.fillMaxWidth(), onClick = { vm.updateLawblox(true) }) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(Lucide.Play, null, Modifier.size(28.dp))
                     Spacer(Modifier.width(12.dp))
